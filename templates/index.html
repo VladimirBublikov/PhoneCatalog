@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'table.css' %}">
+    <title>Справочник</title>
+</head>
+<body>
+
+
+<h1 align="center" >Телефонный справочник юзеров:</h1>
+{% if message %}
+    <p><strong>{{ message }}</strong></p>
+{% endif %}
+
+<table align="center"  >
+    <tr align="center" >
+        <th>№</th>
+        <th>Имя</th>
+        <th>Адрес</th>
+        <th>Телефон</th>
+        <th>Дата внесения</th>
+    </tr>
+    {% if phn %}
+       {% for phone in phn %}
+            <tr>
+                <td>{{ phone.id }}</td>
+                <td>{{ phone.Name }}</td>
+                <td>{{ phone.Address  }}</td>
+                <td>{{ phone.Phone }}</td>
+                <td>{{ phone.RegDate}}</td>
+            </tr>
+
+        {% endfor %}
+    {% endif %}
+
+</table>
+
+
+
+
+
+
+</body>
+</html>
